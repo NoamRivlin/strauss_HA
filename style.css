@@ -1,0 +1,466 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #2D5A5A;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Main Container */
+.container {
+  max-width: 1400px;
+  margin: 40px auto;
+  background-color: #F5F1E8;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  min-height: calc(100vh - 80px);
+}
+
+/* Layout Grid */
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 1fr;
+  min-height: calc(100vh - 80px);
+  position: relative;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+  background-color: #F5F1E8;
+  padding: 60px 0;
+  position: relative;
+}
+
+.sidebar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #2D5A5A;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 30px;
+}
+
+.logo-icon {
+  width: 80px;
+  height: 60px;
+  margin: 0 auto 15px;
+  background: linear-gradient(45deg, #2D5A5A 25%, transparent 25%), 
+              linear-gradient(-45deg, #2D5A5A 25%, transparent 25%), 
+              linear-gradient(45deg, transparent 75%, #2D5A5A 75%), 
+              linear-gradient(-45deg, transparent 75%, #2D5A5A 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+  border-radius: 8px;
+}
+
+.logo-text {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2D5A5A;
+  letter-spacing: 2px;
+}
+
+.logo-subtitle {
+  font-size: 12px;
+  color: #666;
+  letter-spacing: 4px;
+  margin-top: 5px;
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  /* ADD: Top border above navigation */
+  border-top: 2px solid #2D5A5A;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.nav-item {
+  margin-bottom: 30px;
+}
+
+.nav-link {
+  display: block;
+  padding: 20px 30px;
+  color: #2c5f5a;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-link:hover {
+  padding-left: 40px;
+  color: #1a3833;
+}
+
+.nav-link:focus {
+  background-color: #2c5f5a;
+  color: #F5F1E8;
+}
+
+/* Middle Column - Weather and Image */
+.middle-column {
+  position: relative;
+  background-color: #F5F1E8;
+  display: flex;
+  flex-direction: column;
+}
+
+.middle-column::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #2D5A5A;
+}
+
+/* UPDATED: Smaller weather section */
+.weather-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 2px solid #2D5A5A;
+  flex-shrink: 0;
+}
+
+.weather-title {
+  font-size: 28px;
+  color: #2D5A5A;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.weather-content {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #666;
+}
+
+/* UPDATED: Taller hero image */
+.hero-image {
+  width: 100%;
+  flex-grow: 1;
+  background-image: url('https://images.pexels.com/photos/3825568/pexels-photo-3825568.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 2px solid #2D5A5A;
+  min-height: 400px;
+}
+
+/* UPDATED: Stats closer to bottom */
+.stats-section {
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 72px;
+  font-weight: bold;
+  color: #2D5A5A;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #666;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+.stats-divider {
+  width: 2px;
+  height: 80px;
+  background-color: #2D5A5A;
+}
+
+/* Right Column - Main Content */
+.content-column {
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.main-headline {
+  font-size: 64px;
+  font-weight: bold;
+  color: #2D5A5A;
+  line-height: 1.1;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+  padding: 0 50px;
+}
+
+/* UPDATED: Full-width dividers */
+.content-divider {
+  width: 100%;
+  height: 2px;
+  background-color: #2D5A5A;
+  margin: 40px 0;
+}
+
+.subheading {
+  font-size: 32px;
+  color: #2D5A5A;
+  font-weight: 300;
+  line-height: 1.3;
+  margin-bottom: 40px;
+  padding: 0 50px;
+}
+
+/* UPDATED: Container for description and CTA with responsive layout */
+.description-cta-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 0 50px;
+}
+
+.description {
+  font-size: 18px;
+  color: #666;
+  line-height: 1.6;
+  flex-grow: 1;
+  max-width: 500px;
+}
+
+.cta-button {
+  background-color: #2D5A5A;
+  color: white;
+  border: none;
+  padding: 18px 36px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.cta-button:hover {
+  background-color: #1a4040;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(45, 90, 90, 0.3);
+}
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  background-color: #2D5A5A;
+  cursor: pointer;
+  padding: 20px;
+  position: fixed;
+  /* top: 20px;
+  left: 20px; */
+  z-index: 1001;
+  color: #F5F1E8;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Responsive Design */
+@media (max-width: 1000px) {
+  .container {
+      margin: 20px;
+      border-radius: 16px;
+      min-height: calc(100vh - 40px);
+  }
+
+  .layout {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto 1fr;
+  }
+
+  .mobile-nav-toggle {
+      display: block;
+      top: 30px;
+      left: 30px;
+  }
+
+  .sidebar {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 280px;
+      height: 100vh;
+      background-color: #F5F1E8;
+      z-index: 1000;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      border-right: 2px solid #2D5A5A;
+      padding: 20px 0;
+  }
+
+  .sidebar.active {
+      left: 0;
+  }
+
+  .sidebar::after {
+      display: none;
+  }
+
+  .logo {
+    margin-bottom: 0px;
+  }
+
+  .nav-menu {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+
+  .nav-item {
+
+    margin: 10px 0;
+  }
+
+  .nav-link {
+    padding: 10px 20px;
+  }
+
+  .middle-column {
+      order: 1;
+  }
+
+  .middle-column::after {
+      display: none;
+  }
+
+  .content-column {
+      order: 2;
+      padding: 40px 0;
+  }
+
+  /* UPDATED: Stack description and CTA on mobile */
+  .description-cta-container {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 30px;
+      padding: 0 30px;
+  }
+
+  .main-headline {
+      font-size: 48px;
+      margin-bottom: 30px;
+      padding: 0 30px;
+  }
+
+  .subheading {
+      font-size: 24px;
+      margin-bottom: 30px;
+      padding: 0 30px;
+  }
+
+  .hero-image {
+      min-height: 250px;
+  }
+
+  .stats-section {
+      padding: 30px 20px;
+      flex-direction: column;
+      gap: 30px;
+  }
+
+  .stat-number {
+      font-size: 56px;
+  }
+
+  .stats-divider {
+      width: 80px;
+      height: 2px;
+  }
+
+  .weather-section {
+      padding: 20px 30px;
+  }
+
+  .weather-title {
+      font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+      margin: 10px;
+      border-radius: 12px;
+  }
+
+  .main-headline {
+      font-size: 36px;
+      padding: 0 20px;
+  }
+
+  .subheading {
+      font-size: 20px;
+      padding: 0 20px;
+  }
+
+  .description-cta-container {
+      padding: 0 20px;
+  }
+
+  .stats-section {
+      padding: 20px 15px;
+  }
+
+  .stat-number {
+      font-size: 48px;
+  }
+
+  .weather-section {
+      padding: 15px 20px;
+  }
+
+  .description {
+      font-size: 16px;
+  }
+}
