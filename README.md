@@ -1,1 +1,0 @@
-# strauss_HA

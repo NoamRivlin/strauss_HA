@@ -356,13 +356,24 @@
   transition: all var(--transition-base);
   border-radius: var(--radius-sm);
   white-space: nowrap;
- }
- 
- .cta-button:hover {
+  /* position: relative;
+  overflow: hidden; */
+}
+
+.cta-button:hover {
   background-color: var(--primary-darker);
   transform: translateY(-2px);
   box-shadow: var(--shadow-button);
- }
+}
+
+.cta-button.clicked {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+.cta-button:active {
+  transform: scale(0.95);
+}
  
  /* Mobile Navigation */
  .mobile-nav-toggle {

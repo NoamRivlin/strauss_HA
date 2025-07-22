@@ -20,6 +20,38 @@ const getCurrentPosition = () =>
         navigator.geolocation.getCurrentPosition(resolve, reject);
     });
 
+// Press the CTA button to trigger the Confetti Effect
+const triggerConfetti = () => {
+    const duration = 3000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    const interval = setInterval(() => {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+            return clearInterval(interval);
+        }
+
+        const particleCount = 50 * (timeLeft / duration);
+        
+        confetti({
+            ...defaults,
+            particleCount,
+            origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+        });
+        confetti({
+            ...defaults,
+            particleCount,
+            origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+        });
+    }, 250);
+};
+
 // Mobile Navigation
 const initMobileNav = () => {
     const toggle = document.querySelector('.mobile-nav-toggle');
@@ -107,11 +139,24 @@ const initWeather = async () => {
     }
 };
 
+// Initialize CTA Button
+const initCTAButton = () => {
+    const ctaButton = document.querySelector('.cta-button');
+    if (!ctaButton) return;
+
+    ctaButton.addEventListener('click', () => {
+        ctaButton.classList.add('clicked');
+        triggerConfetti();
+        setTimeout(() => ctaButton.classList.remove('clicked'), 300);
+    });
+};
+
 // Initialize everything
 document.addEventListener('DOMContentLoaded', () => {
     Promise.all([
         initMobileNav(),
         initSmoothScroll(),
-        initWeather()
+        initWeather(),
+        initCTAButton()
     ]).catch(error => console.error('Initialization error:', error));
 });
