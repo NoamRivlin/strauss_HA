@@ -149,8 +149,9 @@ class WeatherService {
     }
 
     async getCityName(latitude, longitude) {
+        // Fixed the geocoding API URL
         const response = await fetch(
-            `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${latitude}&longitude=${longitude}&count=1`
+            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
         );
         
         if (!response.ok) {
@@ -159,13 +160,8 @@ class WeatherService {
 
         const data = await response.json();
         
-        if (!data.results || data.results.length === 0) {
-            throw new Error('No location found');
-        }
-
-        const result = data.results[0];
         return {
-            city: result.name || result.admin1 || result.admin2 || 'Unknown Location'
+            city: data.city || data.locality || data.principalSubdivision || 'Unknown Location'
         };
     }
 
