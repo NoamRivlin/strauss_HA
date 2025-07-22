@@ -210,15 +210,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100);
 });
 
-// Performance optimization
-let resizeTimer;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        // Optimize layout on resize
-        if (window.innerWidth > 1000) {
-            document.querySelector('.sidebar').classList.remove('active');
-            document.querySelector('.mobile-overlay').style.display = 'none';
-        }
-    }, 250);
-}); 
